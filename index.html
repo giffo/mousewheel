@@ -1,0 +1,70 @@
+<!DOCTYPE HTML><html><head><meta charset="UTF-8"/><title>
+</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<style type="text/css">
+/*<![CDATA[*/
+
+    html * {margin:0;padding:0;}
+
+	* {outline-style: none;outline:none !important;-webkit-text-stroke:1px transparent;}
+
+
+    body {
+       font-size:16px;
+       font-family:arial,verdana,tahoma;
+       width:100%;
+    }
+
+    menu, nav, section, article, footer, header, hgroup, aside, figure {display: block;}
+
+    #page {
+        text-align:center;
+		width:960px;
+        margin:0 auto;
+        background:#aaaaaf;
+        height:1000px;
+
+    }
+
+    a:focus, a:active, button:focus, button:active {outline:none !important;}
+    button::-moz-focus-inner {border: 0;}
+
+    .r {
+      -moz-border-radius: 1px;
+      border-radius: 1px;
+    }
+
+
+/*]]>*/
+</style>
+</head><body>
+<div id="page">
+    <div id="notice">Move your mousewheel</div>
+    <span id="direction">??</span>
+
+
+</div>
+<script language="JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script language="JavaScript" src="mousewheel.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/
+
+  $(function(){
+    $("#page").on("mousewheel", function(event, dir){
+        event.preventDefault();
+
+        console.log("direction > "+dir);
+
+        $("#direction").html(dir);
+
+    });
+
+  });
+
+
+/*]]>*/
+</script>
+
+</body></html>

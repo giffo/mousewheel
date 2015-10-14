@@ -1,0 +1,121 @@
+<!DOCTYPE HTML><html><head><meta charset="UTF-8"/><title>jquery mousewheel example
+</title>
+<meta name="description" content="mousewheel example" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<style type="text/css">
+/*<![CDATA[*/
+
+    html * {margin:0;padding:0;}
+
+	* {outline-style: none;outline:none !important;-webkit-text-stroke:1px transparent;}
+
+
+    body {
+       font-size:16px;
+       font-family:arial,verdana,tahoma;
+       width:100%;
+       overflow: hidden;
+    }
+
+    .page {
+        text-align:center;
+		width:960px;
+        margin:0 auto;
+        background:#aaaaaf;
+        /*height:1000px;*/
+
+
+        padding-top:100px;
+        font:20px arial, sans-serif;
+        display:none;
+    }
+
+
+/*]]>*/
+</style>
+</head><body>
+<div class="page" id="landing-page">
+Initial Landing Page, move your mouse wheel and change pages.
+</div>
+
+<div class="page" id="intro-page">
+second page
+</div>
+
+<div class="page" id="info-page">
+info page
+</div>
+
+<div class="page" id="about-page">
+about us page
+</div>
+
+<div class="page" id="contact-page">
+contact us page
+</div>
+
+<script language="JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script language="JavaScript" src="mousewheel.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/
+
+    var pages = ["landing", "intro", "info", "about", "contact"];
+
+
+
+    var currentPage = ".page";
+    var index = 0;
+    $(function(){
+        // determine height
+        $(".page").css("height", $(this).height()+"px");
+
+
+        // set the initial state
+        setCurrentPage(index);
+        $(currentPage).css("background-color","#0aa000");
+    });
+
+
+    // don't forget to sort resize handler - .page.height()
+
+    var setCurrentPage = function(i) {
+        console.log(">>"+index +"---should be "+pages[index]);
+        // hiding the soon to be old page
+        $(currentPage).removeClass("current-page");
+        $(currentPage).css("display", "");
+
+        // changing the current page
+        currentPage = "#"+pages[i]+"-page";
+
+        console.log("current selected page"+currentPage);
+
+        // displaying the new/next page
+        $(currentPage).css("display", "block");
+        $(currentPage).addClass("current-page");
+    }
+
+    $(".page").on("mousewheel", null, function(event, dir){
+        event.preventDefault();
+
+        if(dir === "up") {
+            if(index > 0)
+                setCurrentPage(--index);
+
+        }
+
+        if(dir === "down") {
+            if(index < pages.length-1)
+                setCurrentPage(++index);
+        }
+
+
+    });
+
+
+
+/*]]>*/
+</script>
+
+</body></html>

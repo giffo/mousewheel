@@ -1,0 +1,8 @@
+
+
+to disable scrollbars
+
+body {
+overflow:hidden;
+}
+
