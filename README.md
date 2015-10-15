@@ -36,4 +36,4 @@ usage:
 
 There are some .html pages that have simple examples of usage:
 
-index.html and example.html
+[index.html](https://github.com/giffo/mousewheel/blob/master/index.html) and [example.html](https://github.com/giffo/mousewheel/blob/master/example.html)
